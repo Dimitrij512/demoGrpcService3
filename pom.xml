@@ -10,11 +10,11 @@
 	</parent>
 
 	<groupId>com.grpc.demo.service</groupId>
-	<artifactId>service2</artifactId>
+	<artifactId>service3</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>service2</name>
-	<description>dao service</description>
+	<name>service3</name>
+	<description>The service for return data</description>
 
 	<properties>
 		<java.version>1.8</java.version>
