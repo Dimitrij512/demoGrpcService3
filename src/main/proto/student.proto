@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "com.grpc.dao.student.service";
+
+message Student {
+    string id = 1;
+    string name = 2;
+    string surname = 3;
+    int32 age = 4;
+    bool active = 5;
+}
+
+//requests
+message StudentIdRequest {
+    string id = 1;
+}
+
+message StudentAgeRequest {
+    int32 age = 1;
+}
+
+message StudentStatusRequest {
+    bool status = 1;
+}
+
+//responses
+message StudentResponse {
+    Student student = 1;
+}
+
+message StudentsResponse {
+    repeated Student students = 1;
+}
+
+service StudentDaoService {
+    rpc GetById(StudentIdRequest) returns (StudentResponse);
+    rpc FindByAge(StudentAgeRequest) returns (StudentsResponse);
+    rpc FindAll(google.protobuf.Empty) returns (StudentsResponse);
+    rpc FindStudentByStatusStream(stream StudentStatusRequest) returns (stream Student);
+};
